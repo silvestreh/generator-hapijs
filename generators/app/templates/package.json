@@ -1,0 +1,27 @@
+{
+    "name": "<%= name %>",
+    "version": "0.0.0",
+    "description": "Package description.",
+    "license": "MIT",
+    "repository": "user/repo",
+    "dependencies": {
+        "boom": "*",
+        "good": "*",
+        "good-console": "*",
+        "hapi": "*",
+        "handlebars": "*",
+        "joi": "*",
+        "joi-objectid": "*",
+        "mongoose": "*",
+        "path": "*",
+        "underscore": "*"
+    },
+    "devDependencies": {
+        "code": "*",
+        "lab": "*"
+    },
+    "scripts": {
+        "start": "node server.js",
+        "test": "lab ./modules"
+    }
+}

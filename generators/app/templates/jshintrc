@@ -1,0 +1,8 @@
+{
+    "strict": false,
+    "undef": true,
+    "unused": true,
+    "esnext": true,
+    "devel": true,
+    "node": true
+}
