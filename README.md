@@ -2,27 +2,25 @@
 
 A simple Yeoman generator for Hapi.js + Mongoose + Handlebars applications. Forked from Tom Caflisch's marvelous [generator-hapijs](https://github.com/toymachiner62/generator-hapijs/).
 
-## Getting Started
-
-#### Installation
+## Installation
 
 To install generator-japi from npm, run:
 
     $ npm install -g generator-japi
 
-#### Usage
+## Usage
 
-##### Main
+#### Main
 Scaffolds out a hapijs project.
 
     $ yo japi [project-name]
 
-##### Module
+#### Module
 Scaffolds out a module to an existing hapijs project
 
     $ yo japi:module [module-name]
 
-##### Endpoint
+#### Endpoint
 Scaffolds out a new endpoint for an existing module
 
     $ yo japi:endpoint  
