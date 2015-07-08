@@ -4,7 +4,7 @@
   "description": "A simple Yeoman generator for Hapi.js + Mongoose + Handlebars applications.",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "silvestreh/generator-hapijs",
+  "repository": "silvestreh/generator-hapijs-mongoose",
   "author": {
     "name": "Tom Caflisch",
     "email": "tomcaflisch@gmail.com",
