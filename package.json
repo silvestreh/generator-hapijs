@@ -6,17 +6,10 @@
   "main": "app/index.js",
   "repository": "silvestreh/generator-japi",
   "author": {
-    "name": "Tom Caflisch",
-    "email": "tomcaflisch@gmail.com",
-    "url": "https://github.com/toymachiner62"
+    "name": "Silvestre Herrera",
+    "email": "silvestre.herrera@gmail.com",
+    "url": "https://github.com/silvestreh"
   },
-  "contributors": [
-    {
-      "name": "Silvestre Herrera",
-      "email": "silvestre.herrera@gmail.com",
-      "url": "https://github.com/silvestreh"
-    }
-  ],
   "engines": {
     "node": ">=0.12.0"
   },
