@@ -1,14 +1,14 @@
-# generator-hapijs-mongoose
+# generator-hapi
 
-A simple Yeoman generator for Hapi.js + Mongoose + Handlebars applications. Forked from Tom Caflisch's marvelous [generator-hapijs-mongoose](https://github.com/toymachiner62/generator-hapijs-mongoose/).
+A simple Yeoman generator for Hapi.js + Mongoose + Handlebars applications. Forked from Tom Caflisch's marvelous [generator-hapijs](https://github.com/toymachiner62/generator-hapijs/).
 
 ## Getting Started
 
 #### Installation
 
-To install generator-hapijs-mongoose from npm, run:
+To install generator-hapi from npm, run:
 
-    $ npm install -g generator-hapijs-mongoose
+    $ npm install -g generator-hapi
 
 #### Usage
 
@@ -56,5 +56,5 @@ To run tests:
 To install your local version of this package rather than the NPM published version, fork it and then:
 
     $ git clone <your forked repo>
-    $ cd generator-hapijs-mongoose
+    $ cd generator-hapi
     $ npm link
