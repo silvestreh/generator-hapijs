@@ -10,9 +10,9 @@ describe('hapi generator', function () {
                 return done(err);
             }
 
-            this.app = helpers.createGenerator('hapijs:app', [
+            this.app = helpers.createGenerator('japi:app', [
                 '../../generators/app'
-            ]);
+            ], ['test-app']);
             done();
         }.bind(this));
     });
@@ -21,16 +21,16 @@ describe('hapi generator', function () {
         this.timeout(10000);
         var expected = [
             // add files you expect to exist here.
-            'bower.json',
-            'package.json',
-            'server.js',
-            'database.js',
-            'README.md',
-            'modules',
-            'public',
-            'views',
-            'views/partials',
-            'modules/index.js'
+            'test-app/bower.json',
+            'test-app/package.json',
+            'test-app/server.js',
+            'test-app/database.js',
+            'test-app/README.md',
+            'test-app/modules',
+            'test-app/public',
+            'test-app/views',
+            'test-app/views/partials',
+            'test-app/modules/index.js'
         ];
 
         // helpers.mockPrompt(this.app, {

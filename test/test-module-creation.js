@@ -4,14 +4,14 @@ var path = require('path');
 var helpers = require('yeoman-generator').test;
 
 describe('module generator', function () {
-    describe('when no argument is provided. i.e. $ yo hapijs:module', function () {
+    describe('when no argument is provided. i.e. $ yo japi:module', function () {
         beforeEach(function (done) {
             helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
                 if (err) {
                     return done(err);
                 }
 
-                this.app = helpers.createGenerator('hapijs:module', [
+                this.app = helpers.createGenerator('japi:module', [
                     '../../generators/module'
                 ]);
                 done();
@@ -25,7 +25,7 @@ describe('module generator', function () {
                 'modules/items/item-ctrl.js',
                 'modules/items/item-dao.js',
                 'modules/items/item-test.js',
-                'modules/items/item-module.js',
+                'modules/items/item-model.js',
                 'modules/items/item-routes.js'
             ];
 
@@ -40,14 +40,14 @@ describe('module generator', function () {
         });
     });
 
-    describe('when the argument "item" is provided. i.e. $ yo hapijs:module item', function () {
+    describe('when the argument "item" is provided. i.e. $ yo japi:module item', function () {
         beforeEach(function (done) {
             helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
                 if (err) {
                     return done(err);
                 }
 
-                this.app = helpers.createGenerator('hapijs:module', [
+                this.app = helpers.createGenerator('japi:module', [
                     '../../generators/module'
                 ], 'item');
                 done();
@@ -61,6 +61,7 @@ describe('module generator', function () {
                 'modules/items/item-ctrl.js',
                 'modules/items/item-dao.js',
                 'modules/items/item-test.js',
+                'modules/items/item-model.js',
                 'modules/items/item-routes.js'
             ];
 

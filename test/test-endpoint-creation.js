@@ -4,7 +4,7 @@ var path = require('path');
 var helpers = require('yeoman-generator').test;
 
 describe('endpoint generator', function () {
-	describe('when no argument is provided. i.e. $ yo hapijs:route', function() {
+	describe('when no argument is provided. i.e. $ yo japi:route', function() {
 		beforeEach(function (done) {
 			helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
 				if (err) {
@@ -14,7 +14,7 @@ describe('endpoint generator', function () {
 				var that = this;
 
 				// Run the module generator to generate some files to add routes to
-				var app = helpers.createGenerator('hapijs:module', [
+				var app = helpers.createGenerator('japi:module', [
 					'../../generators/module'
 				]);
 
@@ -27,7 +27,7 @@ describe('endpoint generator', function () {
 				// Run the generator to create some files to test with
 				app.run({}, function () {
 					// Define the endpoint generator
-					that.app = helpers.createGenerator('hapijs:endpoint', [
+					that.app = helpers.createGenerator('japi:endpoint', [
 						'../../generators/endpoint'
 					]);
 
@@ -117,7 +117,7 @@ exports.findEm = function\\(callback\\) {\n\
 	});
 
 
-	describe('when no argument is provided. i.e. $ yo hapijs:endpoint item', function() {
+	describe('when no argument is provided. i.e. $ yo japi:endpoint item', function() {
 
 		beforeEach(function (done) {
 			helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
@@ -129,7 +129,7 @@ exports.findEm = function\\(callback\\) {\n\
 				var that = this;
 
 				// Run the module generator to generate some files to add routes to
-				var app = helpers.createGenerator('hapijs:module', [
+				var app = helpers.createGenerator('japi:module', [
 					'../../generators/module'
 				]);
 
@@ -141,7 +141,7 @@ exports.findEm = function\\(callback\\) {\n\
 				app.run({}, function () {
 
 					// Define the endpoint generator
-					that.app = helpers.createGenerator('hapijs:endpoint', [
+					that.app = helpers.createGenerator('japi:endpoint', [
 						'../../generators/endpoint'
 					], 'item');
 
