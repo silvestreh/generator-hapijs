@@ -1,4 +1,4 @@
-# generator-japi
+# generator-japi [![Build Status](https://travis-ci.org/silvestreh/generator-japi.svg?branch=master)](https://travis-ci.org/silvestreh/generator-japi)
 
 A simple Yeoman generator for Hapi.js + Mongoose + Handlebars applications. Forked from Tom Caflisch's marvelous [generator-hapijs](https://github.com/toymachiner62/generator-hapijs/).
 
