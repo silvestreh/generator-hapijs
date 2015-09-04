@@ -5,16 +5,16 @@
  */
 var Joi = require('joi'),
     <%= controllerName %> = require('./<%= name %>-ctrl');
-Joi.objectId = require('joi-objectid');
+    Joi.objectId = require('joi-objectid')(Joi);
 
 module.exports = function () {
     return [
         {
             method: 'POST',
             path: '/<%= pluralName %>',
+            handler: <%= controllerName %>.create,
             config: {
                 description: 'Creates a <%= name %>',
-                handler: <%= controllerName %>.create,
                 validate: {
                     payload: {
                         // TODO: Add some validations
@@ -25,17 +25,17 @@ module.exports = function () {
         {
             method: 'GET',
             path: '/<%= pluralName %>',
+            handler: <%= controllerName %>.find,
             config: {
                 description: 'Fetches all <%= pluralName %>',
-                handler: <%= controllerName %>.find
             }
         },
         {
             method: 'GET',
             path: '/<%= pluralName %>/{id}',
+            handler: <%= controllerName %>.findById,
             config: {
                 description: 'Fetches a <%= name %> by id',
-                handler: <%= controllerName %>.findById,
                 validate: {
                     params: {
                         id: Joi.objectId().required()
@@ -46,9 +46,9 @@ module.exports = function () {
         {
             method: 'PUT',
             path: '/<%= pluralName %>/{id}',
+            handler: <%= controllerName %>.update,
             config: {
                 description: 'Updates a <%= name %> for a specific id',
-                handler: <%= controllerName %>.update,
                 validate: {
                     params: {
                         id: Joi.objectId().required()
@@ -62,9 +62,9 @@ module.exports = function () {
         {
             method: 'DELETE',
             path: '/<%= pluralName %>/{id}',
+            handler: <%= controllerName %>.remove,
             config: {
                 description: 'Remove a <%= name %> for a specific id',
-                handler: <%= controllerName %>.remove,
                 validate: {
                     params: {
                         id: Joi.objectId().required()

@@ -18,14 +18,6 @@ server.connection({
     }
 });
 
-server.views({
-    engines: {
-        html: require('handlebars')
-    },
-    path: Path.join(__dirname, 'views'),
-    partialsPath: Path.join(__dirname, 'views/partials')
-});
-
 /**
  * The hapijs plugins that we want to use and their configs
  */
@@ -42,9 +34,10 @@ var plugins = [
                 }
             }]
         }
-    } /* , {
-        register: require('some-other-plugin')
-    } */
+    },
+    { register: require('inert') },
+    { register: require('vision') }
+    /* { register: require('some-other-plugin') } */
 ];
 
 /**
@@ -55,6 +48,34 @@ server.register(plugins, function (err) {
         throw err;
     }
 
+    server.views({
+        engines: {
+            html: require('handlebars')
+        },
+        path: Path.join(__dirname, 'views'),
+        partialsPath: Path.join(__dirname, 'views/partials')
+    });
+
+    /**
+     * Server static files from /public
+     */
+    server.route({
+        method: 'GET',
+        path: '/{param*}',
+        handler: {
+            directory: {
+                path: 'public'
+            }
+        }
+    });
+
+    /**
+     * Add all the modules within the modules folder
+     */
+    for (var route in modules) {
+        server.route(modules[route]);
+    }
+
     if (!module.parent) {
         server.start(function () {
             console.log('Hapi server started @', server.info.uri);
@@ -62,26 +83,6 @@ server.register(plugins, function (err) {
     }
 
 });
-
-/**
- * Server static files from /public
- */
-server.route({
-    method: 'GET',
-    path: '/{param*}',
-    handler: {
-        directory: {
-            path: 'public'
-        }
-    }
-});
-
-/**
- * Add all the modules within the modules folder
- */
-for (var route in modules) {
-    server.route(modules[route]);
-}
 
 /**
  * Expose the server's methods when used as a require statement

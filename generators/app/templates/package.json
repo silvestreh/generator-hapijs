@@ -10,11 +10,13 @@
         "good-console": "*",
         "hapi": "*",
         "handlebars": "*",
+        "inert": "*",
         "joi": "*",
         "joi-objectid": "*",
         "mongoose": "*",
         "path": "*",
-        "underscore": "*"
+        "underscore": "*",
+        "vision": "*"
     },
     "devDependencies": {
         "code": "*",
