@@ -7,6 +7,7 @@
 var Hapi = require('hapi'),
     modules = require('./modules'),
     Path = require('path'),
+    database = require('./database'),
     server = new Hapi.Server();
 
 server.connection({
@@ -78,6 +79,7 @@ server.register(plugins, function (err) {
 
     if (!module.parent) {
         server.start(function () {
+            database.connect();
             console.log('Hapi server started @', server.info.uri);
         });
     }

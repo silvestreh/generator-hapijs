@@ -36,13 +36,15 @@ db.on('disconnected', function () {
 exports.connect = function (database) {
     var db = database || dbURI;
 
-    mongoose.connect('mongodb://' + db, function (error) {
-        if (error) {
-            throw new Error('Invalid configuration');
-        }
-    });
+    if (mongoose.connection.readyState === 0) {
+        mongoose.connect('mongodb://' + db, function (error) {
+            if (error) {
+                throw new Error(error);
+            }
+        });
+    }
 };
 
 exports.disconnect = function () {
-    mongoose.disconnect();
+    if (mongoose.connection.readyState === 1) mongoose.disconnect();
 };
