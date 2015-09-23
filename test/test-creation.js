@@ -25,6 +25,7 @@ describe('hapi generator', function () {
             'test-app/package.json',
             'test-app/server.js',
             'test-app/database.js',
+            'test-app/config.json',
             'test-app/README.md',
             'test-app/modules',
             'test-app/public',

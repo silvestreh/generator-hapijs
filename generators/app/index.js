@@ -39,6 +39,7 @@ var HapiGenerator = yeoman.generators.Base.extend({
         this.copy('README.md', this.name + '/README.md');
         this.copy('server.js', this.name + path.resolve('/server.js'));
         this.copy('database.js', this.name + path.resolve('/database.js'));
+        this.copy('config.json', this.name + path.resolve('/config.json'));
         this.mkdir(this.name + '/modules');
         this.mkdir(this.name + '/views');
         this.mkdir(this.name + '/views/partials');

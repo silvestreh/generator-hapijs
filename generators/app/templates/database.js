@@ -1,20 +1,13 @@
 var mongoose = require('mongoose'),
+    config = require('./config.json'),
     db = mongoose.connection;
 
-var config = {
-    user: null,         // User name (leave empty if you don't use authentication)
-    pwd: null,          // User password (again, empty if you don't use authentication)
-    host: '127.0.0.1',  // Database server
-    port: 27017,        // Default Mongo port
-    name: 'dbName'      // Database name
-};
-
-if (!config.host || !config.name) {
+if (!config.database.host || !config.database.dbName) {
     throw new Error('Invalid configuration');
 }
 
-var dbURI = (config.user && config.pwd) ? config.user + ':' + config.pwd + '@' + config.host : config.host,
-    dbURI = (config.port) ? dbURI + ':' + config.port + '/' + config.name : dbURI + '/' + config.name;
+var dbURI = (config.database.user && config.database.password) ? config.database.user + ':' + config.database.password + '@' + config.database.host : config.database.host,
+    dbURI = (config.database.port) ? dbURI + ':' + config.database.port + '/' + config.database.dbName : dbURI + '/' + config.database.dbName;
 
 db.on('connecting', function () {
     console.log('Connecting to Database…');
