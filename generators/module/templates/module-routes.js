@@ -7,7 +7,7 @@ var Joi = require('joi'),
     <%= controllerName %> = require('./<%= name %>-ctrl');
     Joi.objectId = require('joi-objectid')(Joi);
 
-module.exports = function () {
+module.exports = () => {
     return [
         {
             method: 'POST',

@@ -14,9 +14,9 @@ var Boom = require('boom');
  * @param req
  * @param reply
  */
-exports.create = function (req, reply) {
+exports.create = (req, reply) => {
 
-	<%= daoName %>.create(req.payload, function (err, data) {
+	<%= daoName %>.create(req.payload, (err, data) => {
 		if (err) {
 			return reply(Boom.wrap(err));
 		}
@@ -30,9 +30,9 @@ exports.create = function (req, reply) {
  * @param req
  * @param reply
  */
-exports.find = function (req, reply) {
+exports.find = (req, reply) => {
 
-	<%= daoName %>.find(function (err, data) {
+	<%= daoName %>.find((err, data) => {
 		if (err) {
 			return reply(Boom.wrap(err));
 		}
@@ -46,9 +46,9 @@ exports.find = function (req, reply) {
  * @param req
  * @param reply
  */
-exports.findById = function (req, reply) {
+exports.findById = (req, reply) => {
 
-	<%= daoName %>.findById(req.params.id, function (err, data) {
+	<%= daoName %>.findById(req.params.id, (err, data) => {
 		if (err) {
 			return reply(Boom.wrap(err));
 		}
@@ -62,25 +62,25 @@ exports.findById = function (req, reply) {
  * @param req
  * @param reply
  */
-exports.update = function (req, reply) {
+exports.update = (req, reply) => {
 
-	<%= daoName %>.update(req.params.id, req.payload, function (err, data) {
+	<%= daoName %>.update(req.params.id, req.payload, (err, data) => {
 		if (err) {
 			return reply(Boom.wrap(err));
 		}
 		reply(data);
 	});
 };
-		
+
 /**
  * Remove a specific <%= name %> by id
  *
  * @param req
  * @param reply
  */
-exports.remove = function (req, reply) {
+exports.remove = (req, reply) => {
 
-	<%= daoName %>.remove(req.params.id, function (err, data) {
+	<%= daoName %>.remove(req.params.id, (err, data) => {
 		if (err) {
 			return reply(Boom.wrap(err));
 		}

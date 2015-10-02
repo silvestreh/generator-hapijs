@@ -8,7 +8,7 @@
 var Joi = require('joi');
 var <%= controllerName %> = require('./<%= name %>-ctrl');
 
-module.exports = function() {
+module.exports = () => {
   return [
     {
       method: 'POST',
@@ -74,6 +74,6 @@ module.exports = function() {
       }
     }
   ]
-	
+
 	/* Add new methods above */
 }();

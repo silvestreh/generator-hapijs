@@ -13,9 +13,9 @@ var lab = exports.lab = Lab.script();
 /**
  * All the tests related to tasks
  */
-lab.experiment('Creating <%= name %>', function() {
+lab.experiment('Creating <%= name %>', () => {
 
-  lab.test('should be successful', function (done) {
+  lab.test('should be successful', (done) => {
     var options = {
       method: 'POST',
       url: '/<%= name %>',
@@ -24,7 +24,7 @@ lab.experiment('Creating <%= name %>', function() {
       }
     };
 
-    server.inject(options, function (response) {
+    server.inject(options, (response) => {
       var result = response.result;
 
       Lab.expect(response.statusCode).to.equal(200);
@@ -35,9 +35,9 @@ lab.experiment('Creating <%= name %>', function() {
 
 });
 
-lab.experiment('Fetching <%= pluralName %>', function() {
+lab.experiment('Fetching <%= pluralName %>', () => {
 
-  lab.test('should be successful', function (done) {
+  lab.test('should be successful', (done) => {
     var options = {
       method: 'GET',
       url: '/<%= name %>',
@@ -46,7 +46,7 @@ lab.experiment('Fetching <%= pluralName %>', function() {
       }
     };
 
-    server.inject(options, function (response) {
+    server.inject(options, (response) => {
       var result = response.result;
 
       Lab.expect(response.statusCode).to.equal(200);
@@ -56,4 +56,3 @@ lab.experiment('Fetching <%= pluralName %>', function() {
   });
 
 });
-

@@ -12,11 +12,9 @@ var <%= daoName %> = require('./<%= name %>-dao'),
  * @param req
  * @param reply
  */
-exports.create = function (req, reply) {
-    <%= daoName %>.create(req.payload, function (err, data) {
-        if (err) {
-            return reply(Boom.wrap(err));
-        }
+exports.create = (req, reply) => {
+    <%= daoName %>.create(req.payload, (err, data) => {
+        if (err) return reply(Boom.wrap(err));
         reply(data);
     });
 };
@@ -27,11 +25,9 @@ exports.create = function (req, reply) {
  * @param req
  * @param reply
  */
-exports.find = function (req, reply) {
-    <%= daoName %>.find(function (err, data) {
-        if (err) {
-            return reply(Boom.wrap(err));
-        }
+exports.find = (req, reply) => {
+    <%= daoName %>.find((err, data) => {
+        if (err) return reply(Boom.wrap(err));
         reply(data);
     });
 };
@@ -42,11 +38,9 @@ exports.find = function (req, reply) {
  * @param req
  * @param reply
  */
-exports.findById = function (req, reply) {
-    <%= daoName %>.findById(req.params.id, function (err, data) {
-        if (err) {
-            return reply(Boom.wrap(err));
-        }
+exports.findById = (req, reply) => {
+    <%= daoName %>.findById(req.params.id, (err, data) => {
+        if (err) return reply(Boom.wrap(err));
         reply(data);
     });
 };
@@ -57,11 +51,9 @@ exports.findById = function (req, reply) {
  * @param req
  * @param reply
  */
-exports.update = function (req, reply) {
-    <%= daoName %>.update(req.params.id, req.payload, function (err, data) {
-        if (err) {
-            return reply(Boom.wrap(err));
-        }
+exports.update = (req, reply) => {
+    <%= daoName %>.update(req.params.id, req.payload, (err, data) => {
+        if (err) return reply(Boom.wrap(err));
         reply(data);
     });
 };
@@ -72,11 +64,9 @@ exports.update = function (req, reply) {
  * @param req
  * @param reply
  */
-exports.remove = function (req, reply) {
-    <%= daoName %>.remove(req.params.id, function (err, data) {
-        if (err) {
-            return reply(Boom.wrap(err));
-        }
+exports.remove = (req, reply) => {
+    <%= daoName %>.remove(req.params.id, (err, data) => {
+        if (err) return reply(Boom.wrap(err));
         reply(data);
     });
 };

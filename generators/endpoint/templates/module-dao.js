@@ -13,7 +13,7 @@ var Boom = require('boom');
  * @param payload - The data to be used to create a <%= name %>
  * @param callback
  */
-exports.create = function (payload, callback) {
+exports.create = (payload, callback) => {
 	// TODO: Implement dao method and call callback(null, <data>)
 	return callback(Boom.notImplemented());
 };
@@ -23,7 +23,7 @@ exports.create = function (payload, callback) {
  *
  * @param callback
  */
-exports.find = function (callback) {
+exports.find = (callback) => {
 	// TODO: Implement dao method and call callback(null, <data>)
 	return callback(Boom.notImplemented());
 };
@@ -34,7 +34,7 @@ exports.find = function (callback) {
  * @param id  - The id of the <%= name %> to get
  * @param callback
  */
-exports.findById = function (id, callback) {
+exports.findById = (id, callback) => {
 	// TODO: Implement dao method and call callback(null, <data>)
 	return callback(Boom.notImplemented());
 };
@@ -46,7 +46,7 @@ exports.findById = function (id, callback) {
  * @param payload - The data to be updated
  * @param callback
  */
-exports.update = function (id, payload, callback) {
+exports.update = (id, payload, callback) => {
 	// TODO: Implement dao method and call callback(null, <data>)
 	return callback(Boom.notImplemented());
 };
@@ -57,7 +57,7 @@ exports.update = function (id, payload, callback) {
  * @param id      - The id of the <%= name %> to be deleted
  * @param callback
  */
-exports.remove = function (id, callback) {
+exports.remove = (id, callback) => {
 	// TODO: Implement dao method and call callback(null, <data>)
 	return callback(Boom.notImplemented());
 };

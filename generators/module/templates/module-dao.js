@@ -11,12 +11,12 @@ var <%= capitalizedName %> = require('./<%= name %>-model');
  * @param payload - The data to be used to create a <%= name %>
  * @param callback
  */
-exports.create = function (payload, callback) {
+exports.create = (payload, callback) => {
 	var new<%= capitalizedName %> = new <%= capitalizedName %>();
 
 	// new<%= capitalizedName %>.someProperty = payload.someProperty;
 
-    new<%= capitalizedName %>.save(function (error, result) {
+    new<%= capitalizedName %>.save((error, result) => {
 		return callback(error, result);
     });
 };
@@ -26,8 +26,8 @@ exports.create = function (payload, callback) {
  *
  * @param callback
  */
-exports.find = function (callback) {
-	<%= capitalizedName %>.find(function (error, results) {
+exports.find = (callback) => {
+	<%= capitalizedName %>.find((error, results) => {
 		return callback(error, results);
 	});
 };
@@ -38,8 +38,8 @@ exports.find = function (callback) {
  * @param id  - The id of the <%= name %> to get
  * @param callback
  */
-exports.findById = function (id, callback) {
-	<%= capitalizedName %>.findById(id, function (error, result) {
+exports.findById = (id, callback) => {
+	<%= capitalizedName %>.findById(id, (error, result) => {
 		return callback(error, result);
 	});
 };
@@ -51,11 +51,11 @@ exports.findById = function (id, callback) {
  * @param payload - The data to be updated
  * @param callback
  */
-exports.update = function (id, payload, callback) {
-	<%= capitalizedName %>.findById(id, function (error, result) {
+exports.update = (id, payload, callback) => {
+	<%= capitalizedName %>.findById(id, (error, result) => {
 		// result.someProperty = payload.someProperty;
 
-	    result.save(function (error, updated<%= capitalizedName %>) {
+	    result.save((error, updated<%= capitalizedName %>) => {
 			return callback(error, updated<%= capitalizedName %>);
 	    });
 	});
@@ -67,8 +67,8 @@ exports.update = function (id, payload, callback) {
  * @param id      - The id of the <%= name %> to be deleted
  * @param callback
  */
-exports.remove = function (id, callback) {
-	<%= capitalizedName %>.findById(id, function (error, result) {
+exports.remove = (id, callback) => {
+	<%= capitalizedName %>.findById(id, (error, result) => {
 		result.remove();
 		return callback(error, { success: true });
 	});
