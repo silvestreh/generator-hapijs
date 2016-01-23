@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * This file just loads all the *-routes.js files in any /modules/<subdir>.
  *
@@ -8,15 +10,20 @@ var fs = require('fs');
 var _ = require('lodash');
 
 fs.readdirSync(__dirname).forEach((dir) => {
-	if (dir === 'index.js')	return;
+    var currentDir;
+    var stat;
 
-	var currentDir = path.join(__dirname, dir);
-	var stat = fs.statSync(currentDir);
+	if (dir === 'index.js')	{
+        return;
+    }
+
+	currentDir = path.join(__dirname, dir);
+    stat = fs.statSync(currentDir);
 
 	if (stat && stat.isDirectory()) {
 		fs.readdirSync(currentDir).forEach((file) => {
 			if (file.indexOf('-routes.js') > 0) {
-				var mod = {};
+				let mod = {};
 				mod[path.basename(file, '.js')] = require(path.join(currentDir, file));
 				_.extend(module.exports, mod);
 			}

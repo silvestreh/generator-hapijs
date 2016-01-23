@@ -4,21 +4,19 @@
  * @type {exports}
  */
 
-var Lab = require('lab'),
-    Code = require('code'),
-    server = require('../../server'),
-    lab = exports.lab = Lab.script();
+const Lab = require('lab');
+const Code = require('code');
+const server = require('../../server');
+const lab = exports.lab = Lab.script();
 
-/**
- * All the tests related to tasks
- */
-lab.experiment('Creating <%= name %>', () => {
-    lab.test('should be successful', (done) => {
+lab.experiment('<%= name %> module', () => {
+
+    lab.test('should create a <%= name %>', (done) => {
         var options = {
             method: 'POST',
-            url: '/<%= pluralName %>',
+            url: '/api/<%= pluralName %>',
             payload: {
-
+                // TODO: Add some validations
             }
         };
 
@@ -27,13 +25,38 @@ lab.experiment('Creating <%= name %>', () => {
             done();
         });
     });
-});
 
-lab.experiment('Fetching <%= pluralName %>', () => {
-    lab.test('should be successful', (done) => {
+    lab.test('should fetch all <%= pluralName %>', (done) => {
         var options = {
             method: 'GET',
-            url: '/<%= pluralName %>'
+            url: '/api/<%= pluralName %>'
+        };
+
+        server.inject(options, (response) => {
+            Code.expect(response.statusCode).to.equal(200);
+            done();
+        });
+    });
+
+    lab.test('should update a <%= name %>', (done) => {
+        var options = {
+            method: 'PUT',
+            url: '/api/<%= pluralName %>/507f1f77bcf86cd799439011',
+            payload: {
+                // TODO: Add some validations
+            }
+        };
+
+        server.inject(options, (response) => {
+            Code.expect(response.statusCode).to.equal(200);
+            done();
+        });
+    });
+
+    lab.test('should delete a <%= name %>', (done) => {
+        var options = {
+            method: 'DELETE',
+            url: '/api/<%= pluralName %>/507f1f77bcf86cd799439011'
         };
 
         server.inject(options, (response) => {

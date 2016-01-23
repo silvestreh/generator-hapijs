@@ -3,15 +3,16 @@
  *
  * @type {exports}
  */
-var Joi = require('joi'),
-    <%= controllerName %> = require('./<%= name %>-ctrl');
-    Joi.objectId = require('joi-objectid')(Joi);
+const Joi = require('joi');
+const <%= controllerName %> = require('./<%= name %>-ctrl');
+
+Joi.objectId = require('joi-objectid')(Joi);
 
 module.exports = () => {
     return [
         {
             method: 'POST',
-            path: '/<%= pluralName %>',
+            path: '/api/<%= pluralName %>',
             handler: <%= controllerName %>.create,
             config: {
                 description: 'Creates a <%= name %>',
@@ -24,7 +25,7 @@ module.exports = () => {
         },
         {
             method: 'GET',
-            path: '/<%= pluralName %>',
+            path: '/api/<%= pluralName %>',
             handler: <%= controllerName %>.find,
             config: {
                 description: 'Fetches all <%= pluralName %>',
@@ -32,7 +33,7 @@ module.exports = () => {
         },
         {
             method: 'GET',
-            path: '/<%= pluralName %>/{id}',
+            path: '/api/<%= pluralName %>/{id}',
             handler: <%= controllerName %>.findById,
             config: {
                 description: 'Fetches a <%= name %> by id',
@@ -45,7 +46,7 @@ module.exports = () => {
         },
         {
             method: 'PUT',
-            path: '/<%= pluralName %>/{id}',
+            path: '/api/<%= pluralName %>/{id}',
             handler: <%= controllerName %>.update,
             config: {
                 description: 'Updates a <%= name %> for a specific id',
@@ -61,7 +62,7 @@ module.exports = () => {
         },
         {
             method: 'DELETE',
-            path: '/<%= pluralName %>/{id}',
+            path: '/api/<%= pluralName %>/{id}',
             handler: <%= controllerName %>.remove,
             config: {
                 description: 'Remove a <%= name %> for a specific id',

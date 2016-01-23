@@ -1,15 +1,15 @@
+'use strict';
+
 /**
  * Hapi.js server.
  *
  * @type {exports}
  */
- 'use strict';
-
-var Hapi = require('hapi'),
-    modules = require('./modules'),
-    Path = require('path'),
-    database = require('./database'),
-    server = new Hapi.Server();
+const Hapi = require('hapi');
+const modules = require('./modules');
+const Path = require('path');
+const database = require('./database');
+const server = new Hapi.Server();
 
 server.connection({
     port: process.env.PORT || 3000,
@@ -31,7 +31,8 @@ var plugins = [
                 reporter: require('good-console'),
                 events: {
                     response: '*',
-                    log: '*'
+                    log: '*',
+                    error: '*'
                 }
             }]
         }
@@ -42,14 +43,29 @@ var plugins = [
 ];
 
 /**
- * Setup Views
+ * Setup the server with plugins
  */
-server.views({
-    engines: {
-        html: require('handlebars')
-    },
-    path: Path.join(__dirname, 'views'),
-    partialsPath: Path.join(__dirname, 'views/partials')
+server.register(plugins, (err) => {
+    if (err) {
+        throw err;
+    }
+
+    // Setup views
+    server.views({
+        engines: {
+            html: require('handlebars')
+        },
+        path: Path.join(__dirname, 'views'),
+        partialsPath: Path.join(__dirname, 'views/partials')
+    });
+
+    if (!module.parent) {
+        server.start(() => {
+            database.connect();
+            console.log('Hapi server started @', server.info.uri);
+        });
+    }
+
 });
 
 /**
@@ -71,21 +87,6 @@ server.route({
 for (let route in modules) {
     server.route(modules[route]);
 }
-
-/**
- * Setup the server with plugins
- */
-server.register(plugins, (err) => {
-    if (err) throw err;
-
-    if (!module.parent) {
-        server.start(() => {
-            database.connect();
-            console.log('Hapi server started @', server.info.uri);
-        });
-    }
-
-});
 
 /**
  * Expose the server's methods when used as a require statement

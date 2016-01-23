@@ -3,7 +3,7 @@
  *
  * @type {exports}
  */
-var <%= capitalizedName %> = require('./<%= name %>-model');
+const <%= capitalizedName %> = require('./<%= name %>-model');
 
 /**
  * Creates a <%= name %>

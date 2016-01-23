@@ -5,28 +5,31 @@
     "license": "MIT",
     "repository": "user/repo",
     "dependencies": {
-        "boom": "2.9.0",
+        "boom": "3.1.2",
         "good": "6.4.0",
-        "good-console": "5.1.0",
-        "hapi": "10.1.0",
-        "handlebars": "4.0.3",
-        "inert": "3.0.1",
-        "joi": "6.7.1",
+        "good-console": "5.3.0",
+        "hapi": "12.1.0",
+        "handlebars": "4.0.5",
+        "inert": "3.2.0",
+        "joi": "7.2.2",
         "joi-objectid": "2.0.0",
-        "lodash": "3.10.1",
-        "mongoose": "4.1.9",
+        "lodash": "4.0.0",
+        "mockgoose": "5.2.2",
+        "mongoose": "4.3.6",
         "path": "0.12.7",
-        "vision": "3.0.0"
+        "vision": "4.0.1"
     },
     "devDependencies": {
-        "code": "1.5.0",
-        "lab": "6.1.0"
+        "code": "2.1.0",
+        "lab": "8.2.0",
+        "cross-env": "1.0.7",
+        "nodemon": "1.8.1"
     },
     "engines": {
         "node": ">=4.0.0"
     },
     "scripts": {
-        "start": "node server.js",
-        "test": "lab ./modules"
+        "start": "cross-env NODE_ENV=development nodemon server.js",
+        "test": "cross-env NODE_ENV=test lab ./modules"
     }
 }

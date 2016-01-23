@@ -14,8 +14,11 @@ var <%= daoName %> = require('./<%= name %>-dao'),
  */
 exports.create = (req, reply) => {
     <%= daoName %>.create(req.payload, (err, data) => {
-        if (err) return reply(Boom.wrap(err));
-        reply(data);
+        if (err) {
+            return reply(Boom.wrap(err));
+        }
+        
+        return reply(data);
     });
 };
 
@@ -27,8 +30,11 @@ exports.create = (req, reply) => {
  */
 exports.find = (req, reply) => {
     <%= daoName %>.find((err, data) => {
-        if (err) return reply(Boom.wrap(err));
-        reply(data);
+        if (err) {
+            return reply(Boom.wrap(err));
+        }
+        
+        return reply(data);
     });
 };
 
@@ -40,8 +46,11 @@ exports.find = (req, reply) => {
  */
 exports.findById = (req, reply) => {
     <%= daoName %>.findById(req.params.id, (err, data) => {
-        if (err) return reply(Boom.wrap(err));
-        reply(data);
+        if (err) {
+            return reply(Boom.wrap(err));
+        }
+        
+        return reply(data);
     });
 };
 
@@ -53,8 +62,11 @@ exports.findById = (req, reply) => {
  */
 exports.update = (req, reply) => {
     <%= daoName %>.update(req.params.id, req.payload, (err, data) => {
-        if (err) return reply(Boom.wrap(err));
-        reply(data);
+        if (err) {
+            return reply(Boom.wrap(err));
+        }
+        
+        return reply(data);
     });
 };
 
@@ -66,8 +78,11 @@ exports.update = (req, reply) => {
  */
 exports.remove = (req, reply) => {
     <%= daoName %>.remove(req.params.id, (err, data) => {
-        if (err) return reply(Boom.wrap(err));
-        reply(data);
+        if (err) {
+            return reply(Boom.wrap(err));
+        }
+        
+        return reply(data);
     });
 };
 
